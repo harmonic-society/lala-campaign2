@@ -587,27 +587,62 @@ body {
     background: var(--bg-light);
 }
 
-.solution-items {
+.solution-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.solution-row {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
 }
 
-.solution-item {
-    background: white;
+.solution-row.reverse {
+    direction: rtl;
+}
+
+.solution-row.reverse > * {
+    direction: ltr;
+}
+
+.solution-text {
     padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-sm);
 }
 
-.solution-icon {
-    font-size: 2.5rem;
+.solution-text h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
     margin-bottom: 1rem;
+    line-height: 1.3;
 }
 
-.solution-item h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.5rem;
+.solution-text p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+.solution-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+.solution-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.solution-image:hover img {
+    transform: scale(1.05);
     color: var(--primary-color);
 }
 
@@ -970,6 +1005,27 @@ body {
         height: 180px;
     }
     
+    .solution-row {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .solution-row.reverse {
+        direction: ltr;
+    }
+    
+    .solution-text {
+        padding: 1.5rem;
+    }
+    
+    .solution-text h3 {
+        font-size: 1.5rem;
+    }
+    
+    .solution-text p {
+        font-size: 1rem;
+    }
+    
     .comparison-header,
     .comparison-row {
         grid-template-columns: 1fr;
@@ -1074,6 +1130,26 @@ body {
     
     .problem-card h3 {
         font-size: 1rem;
+    }
+    
+    .solution-grid {
+        gap: 2.5rem;
+    }
+    
+    .solution-row {
+        gap: 1.5rem;
+    }
+    
+    .solution-text {
+        padding: 1rem;
+    }
+    
+    .solution-text h3 {
+        font-size: 1.25rem;
+    }
+    
+    .solution-text p {
+        font-size: 0.95rem;
     }
     
     .testimonials {
