@@ -600,11 +600,11 @@ body {
     align-items: center;
 }
 
-.solution-row.reverse {
+.solution-row:nth-child(even) {
     direction: rtl;
 }
 
-.solution-row.reverse > * {
+.solution-row:nth-child(even) > * {
     direction: ltr;
 }
 
@@ -1010,7 +1010,7 @@ body {
         gap: 2rem;
     }
     
-    .solution-row.reverse {
+    .solution-row:nth-child(even) {
         direction: ltr;
     }
     
