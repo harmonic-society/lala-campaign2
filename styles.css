@@ -600,12 +600,16 @@ body {
     align-items: center;
 }
 
-.solution-row:nth-child(even) {
-    direction: rtl;
+.solution-row.reverse {
+    flex-direction: row-reverse;
 }
 
-.solution-row:nth-child(even) > * {
-    direction: ltr;
+.solution-row.reverse .solution-text {
+    order: 2;
+}
+
+.solution-row.reverse .solution-image {
+    order: 1;
 }
 
 .solution-text {
@@ -1010,8 +1014,12 @@ body {
         gap: 2rem;
     }
     
-    .solution-row:nth-child(even) {
-        direction: ltr;
+    .solution-row.reverse .solution-text {
+        order: 1;
+    }
+    
+    .solution-row.reverse .solution-image {
+        order: 1;
     }
     
     .solution-text {
