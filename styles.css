@@ -153,20 +153,63 @@ body {
 .hero-badge {
     position: relative;
     display: inline-block;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    animation: badgeGlow 3s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 .badge-text {
     display: inline-block;
-    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
-    padding: 0.625rem 1.5rem;
-    border-radius: 50px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #dc2626 100%);
+    padding: 0.875rem 2.5rem;
+    border-radius: 60px;
     font-weight: 700;
-    font-size: 0.875rem;
-    letter-spacing: 0.05em;
-    box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+    font-size: 1.125rem;
+    letter-spacing: 0.1em;
+    box-shadow: 0 20px 40px -10px rgba(245, 158, 11, 0.5),
+                0 10px 20px -5px rgba(220, 38, 38, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
     position: relative;
     z-index: 2;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    background-size: 200% 200%;
+    animation: gradientShift 4s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.badge-text::before {
+    content: '⭐';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    animation: starSpin 3s linear infinite;
+}
+
+.badge-text::after {
+    content: '⭐';
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    animation: starSpin 3s linear infinite reverse;
+}
+
+@keyframes starSpin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
 }
 
 .badge-pulse {
@@ -176,20 +219,99 @@ body {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    border-radius: 50px;
-    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    border-radius: 60px;
+    background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #dc2626 100%);
     animation: pulse 2s ease-out infinite;
     z-index: 1;
+}
+
+.badge-pulse::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 60px;
+    background: inherit;
+    animation: pulse 2s ease-out infinite 0.5s;
 }
 
 @keyframes pulse {
     0% {
         transform: translate(-50%, -50%) scale(1);
-        opacity: 0.7;
+        opacity: 0.8;
     }
     100% {
-        transform: translate(-50%, -50%) scale(1.5);
+        transform: translate(-50%, -50%) scale(1.6);
         opacity: 0;
+    }
+}
+
+.badge-sparkles {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: sparkleAnimation 3s ease-in-out infinite;
+}
+
+.sparkle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.sparkle:nth-child(1) {
+    top: 0;
+    left: 50%;
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: 50%;
+    right: 0;
+    animation-delay: 0.75s;
+}
+
+.sparkle:nth-child(3) {
+    bottom: 0;
+    left: 50%;
+    animation-delay: 1.5s;
+}
+
+.sparkle:nth-child(4) {
+    top: 50%;
+    left: 0;
+    animation-delay: 2.25s;
+}
+
+@keyframes sparkleAnimation {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
