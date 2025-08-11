@@ -471,26 +471,81 @@ body {
 
 .problem-card {
     background: white;
-    padding: 2rem;
-    border-radius: 1rem;
+    border-radius: 1.2rem;
+    overflow: hidden;
     text-align: center;
-    box-shadow: var(--shadow-md);
-    transition: transform 0.3s;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.problem-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2563eb 0%, #7c3aed 50%, #ec4899 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .problem-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.15);
+}
+
+.problem-card:hover::before {
+    opacity: 1;
+}
+
+.problem-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.problem-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    opacity: 0.9;
+}
+
+.problem-card:hover .problem-image img {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+.problem-content {
+    padding: 2rem;
 }
 
 .problem-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border-radius: 50%;
+    font-size: 2rem;
+    margin: -30px auto 1rem;
+    position: relative;
+    box-shadow: 0 10px 20px -5px rgba(59, 130, 246, 0.15);
+    border: 3px solid white;
 }
 
 .problem-card h3 {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--text-primary);
-    line-height: 1.5;
+    line-height: 1.6;
+    font-weight: 600;
+    margin: 0;
 }
 
 .problem-solution {
@@ -906,6 +961,15 @@ body {
         display: none;
     }
     
+    .problem-cards {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .problem-image {
+        height: 180px;
+    }
+    
     .comparison-header,
     .comparison-row {
         grid-template-columns: 1fr;
@@ -990,6 +1054,26 @@ body {
     
     .problem-cards {
         grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .problem-image {
+        height: 150px;
+    }
+    
+    .problem-content {
+        padding: 1.5rem;
+    }
+    
+    .problem-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        margin: -25px auto 0.75rem;
+    }
+    
+    .problem-card h3 {
+        font-size: 1rem;
     }
     
     .testimonials {
