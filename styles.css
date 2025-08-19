@@ -1276,6 +1276,12 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.period-start,
+.period-end {
     background: linear-gradient(90deg, white, rgba(255, 255, 255, 0.9));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -1284,7 +1290,8 @@ body {
 
 .period-separator {
     font-size: 2rem;
-    opacity: 0.8;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 .narrowing-timer {
@@ -1338,12 +1345,27 @@ body {
 }
 
 .text-highlight {
-    background: linear-gradient(90deg, #FFD700, #FFA500);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: white;
+    color: #FF6B6B;
+    padding: 0.25rem 0.75rem;
+    border-radius: 8px;
     font-weight: 900;
     font-size: 1.4rem;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    animation: highlightPulse 2s ease-in-out infinite;
+}
+
+@keyframes highlightPulse {
+    0%, 100% { 
+        background: white;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    50% { 
+        background: linear-gradient(135deg, #FFD700, #FFA500);
+        color: #1a1a2e;
+        box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
+    }
 }
 
 .narrowing-cta {
