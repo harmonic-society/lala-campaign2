@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="header">
@@ -28,36 +29,65 @@
     </header>
 
     <section class="hero">
-        <div class="hero-decoration-1"></div>
-        <div class="hero-decoration-2"></div>
+        <div class="hero-bg-pattern"></div>
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">
-                    <span class="badge-text">先着5社限定</span>
-                    <span class="badge-pulse"></span>
-                    <div class="badge-sparkles">
-                        <span class="sparkle"></span>
-                        <span class="sparkle"></span>
-                        <span class="sparkle"></span>
-                        <span class="sparkle"></span>
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <i class="fas fa-star badge-icon"></i>
+                        <span class="badge-text">先着5社限定</span>
+                        <span class="badge-pulse"></span>
+                    </div>
+                    <h2 class="hero-title">
+                        <span class="title-main">法人向け語学研修</span>
+                        <span class="title-sub">トライアルパッケージ</span>
+                    </h2>
+                    <p class="hero-subtitle">1〜3名から始められる、実践的な語学研修</p>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <i class="fas fa-users feature-icon"></i>
+                            <span>1〜3名の少人数</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-globe feature-icon"></i>
+                            <span>35言語対応</span>
+                        </div>
+                        <div class="hero-feature">
+                            <i class="fas fa-laptop feature-icon"></i>
+                            <span>オンライン対応</span>
+                        </div>
+                    </div>
+                    <div class="hero-price">
+                        <span class="price-label">全4回</span>
+                        <span class="price-amount">11,000円</span>
+                        <span class="price-tax">(税込)</span>
+                    </div>
+                    <div class="hero-actions">
+                        <a href="#cta" class="hero-cta primary">
+                            <span class="cta-text">まずは4回だけ体験する</span>
+                            <i class="fas fa-arrow-right cta-icon"></i>
+                        </a>
+                        <a href="#solution" class="hero-cta secondary">
+                            <span class="cta-text">詳細を見る</span>
+                            <i class="fas fa-chevron-down cta-icon"></i>
+                        </a>
                     </div>
                 </div>
-                <h2 class="hero-title">
-                    <span class="title-main">法人向け語学研修</span><br>
-                    <span class="title-sub">トライアルパッケージ</span>
-                </h2>
-                <p class="hero-subtitle">1〜3名から始められる、実践的な語学研修</p>
-                <div class="hero-price">
-                    <span class="price-label">全4回</span>
-                    <span class="price-amount">11,000円</span>
-                    <span class="price-tax">(税込)</span>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="img/AdobeStock_566096249_Preview.jpeg" alt="語学研修" class="hero-image">
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">98%</span>
+                                <span class="stat-label">満足度</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">導入企業</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <a href="#cta" class="hero-cta">
-                    <span class="cta-text">まずは4回だけ体験する</span>
-                    <svg class="cta-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                        <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </a>
             </div>
         </div>
     </section>
@@ -71,7 +101,7 @@
                         <img src="img/AdobeStock_1105142534_Preview.jpeg" alt="語学研修の導入">
                     </div>
                     <div class="problem-content">
-                        <div class="problem-icon">🤔</div>
+                        <div class="problem-icon"><i class="fas fa-question-circle"></i></div>
                         <h3>語学研修を導入したいけど<br>何から始めたらいいか分からない</h3>
                     </div>
                 </div>
@@ -80,7 +110,7 @@
                         <img src="img/AdobeStock_560582269_Preview.jpeg" alt="まずは試してみたい">
                     </div>
                     <div class="problem-content">
-                        <div class="problem-icon">💰</div>
+                        <div class="problem-icon"><i class="fas fa-coins"></i></div>
                         <h3>高額な契約をする前に<br>まずは試してみたい</h3>
                     </div>
                 </div>
@@ -89,7 +119,7 @@
                         <img src="img/AdobeStock_464341351_Preview.jpeg" alt="成果が見えなかった">
                     </div>
                     <div class="problem-content">
-                        <div class="problem-icon">😞</div>
+                        <div class="problem-icon"><i class="fas fa-chart-line"></i></div>
                         <h3>以前研修をしたが<br>続かなかった/成果が見えなかった</h3>
                     </div>
                 </div>
