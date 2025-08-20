@@ -1514,6 +1514,21 @@ body {
     text-align: center;
 }
 
+.footer-company {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.footer-company a {
+    color: white;
+    text-decoration: underline;
+    transition: opacity 0.3s;
+}
+
+.footer-company a:hover {
+    opacity: 0.8;
+}
+
 @media (max-width: 768px) {
     .hero-wrapper {
         grid-template-columns: 1fr;
