@@ -1,4 +1,93 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Google Analytics コンバージョントラッキング
+    function trackConversion(eventName, parameters = {}) {
+        if (typeof gtag !== 'undefined') {
+            gtag('event', eventName, {
+                'event_category': 'conversion',
+                'event_label': parameters.label || '',
+                'value': parameters.value || 0,
+                ...parameters
+            });
+            console.log('GA4 Event tracked:', eventName, parameters);
+        }
+    }
+
+    // CTAボタンのトラッキング設定
+    function setupCTATracking() {
+        // ヘッダーの「お申し込み」ボタン
+        const headerCTA = document.querySelector('.nav .cta-button');
+        if (headerCTA) {
+            headerCTA.addEventListener('click', function() {
+                trackConversion('application_submit', {
+                    label: 'header_nav',
+                    button_location: 'header'
+                });
+            });
+        }
+
+        // ヒーローセクションの「まずは4回だけ体験する」ボタン
+        const heroPrimaryCTA = document.querySelector('.hero-cta.primary');
+        if (heroPrimaryCTA) {
+            heroPrimaryCTA.addEventListener('click', function() {
+                trackConversion('application_submit', {
+                    label: 'hero_primary',
+                    button_location: 'hero_section',
+                    value: 11000
+                });
+            });
+        }
+
+        // ヒーローセクションの「詳細を見る」ボタン
+        const heroSecondaryCTA = document.querySelector('.hero-cta.secondary');
+        if (heroSecondaryCTA) {
+            heroSecondaryCTA.addEventListener('click', function(e) {
+                trackConversion('detail_view', {
+                    label: 'hero_secondary',
+                    button_location: 'hero_section'
+                });
+            });
+        }
+
+        // narrowingセクションの「今すぐ申し込む」ボタン
+        const narrowingCTA = document.querySelector('.narrowing-cta');
+        if (narrowingCTA) {
+            narrowingCTA.addEventListener('click', function() {
+                trackConversion('application_submit', {
+                    label: 'narrowing_urgent',
+                    button_location: 'narrowing_section',
+                    urgency: 'high',
+                    value: 11000
+                });
+            });
+        }
+
+        // CTAセクションの「法人語学研修体験お申し込み」ボタン
+        const ctaPrimary = document.querySelector('.cta-primary');
+        if (ctaPrimary) {
+            ctaPrimary.addEventListener('click', function() {
+                trackConversion('application_submit', {
+                    label: 'cta_primary',
+                    button_location: 'cta_section',
+                    value: 11000
+                });
+            });
+        }
+
+        // CTAセクションの「まずはご相談」ボタン
+        const ctaSecondary = document.querySelector('.cta-secondary');
+        if (ctaSecondary) {
+            ctaSecondary.addEventListener('click', function() {
+                trackConversion('consultation_request', {
+                    label: 'cta_secondary',
+                    button_location: 'cta_section'
+                });
+            });
+        }
+    }
+
+    // CTAトラッキングを初期化
+    setupCTATracking();
+
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
     navLinks.forEach(link => {
