@@ -394,53 +394,104 @@ body {
 }
 
 .hero-cta.primary {
-    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-    color: #1a1a1a;
-    box-shadow: 0 15px 35px -10px rgba(255, 165, 0, 0.5);
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d44 100%);
+    color: #FFD700;
+    box-shadow:
+        0 20px 50px -15px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 215, 0, 0.2),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
     position: relative;
     overflow: hidden;
     font-weight: 800;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    letter-spacing: 0.03em;
 }
 
 .hero-cta.primary::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+    animation: rotateGlow 8s linear infinite;
+}
+
+@keyframes rotateGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.hero-cta.primary::after {
     content: '';
     position: absolute;
     top: 0;
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-    transition: left 0.5s ease;
+    background: linear-gradient(90deg, transparent, rgba(255, 215, 0, 0.2), transparent);
+    transition: left 0.6s ease;
 }
 
-.hero-cta.primary:hover::before {
+.hero-cta.primary:hover::after {
     left: 100%;
 }
 
 .hero-cta.primary:hover {
-    transform: translateY(-5px) scale(1.05);
-    box-shadow: 0 20px 45px -10px rgba(255, 165, 0, 0.6);
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+        0 25px 60px -15px rgba(255, 215, 0, 0.4),
+        0 0 80px -20px rgba(255, 215, 0, 0.3),
+        inset 0 1px 0 rgba(255, 215, 0, 0.4),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.5);
+    border-color: rgba(255, 215, 0, 0.6);
+    color: #FFF;
 }
 
 .hero-cta.primary:hover .cta-icon {
-    transform: translateX(8px);
+    transform: translateX(8px) scale(1.1);
 }
 
 .hero-cta.primary:active {
-    transform: translateY(-3px) scale(1.03);
+    transform: translateY(-4px) scale(1.03);
 }
 
 .hero-cta.secondary {
-    background: white;
+    background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
-    box-shadow: 0 10px 25px -10px rgba(0, 0, 0, 0.1);
+    border: 2px solid rgba(59, 130, 246, 0.3);
+    box-shadow:
+        0 10px 30px -10px rgba(59, 130, 246, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    position: relative;
+}
+
+.hero-cta.secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 12px;
+}
+
+.hero-cta.secondary:hover::before {
+    opacity: 1;
 }
 
 .hero-cta.secondary:hover {
-    background: var(--bg-light);
-    transform: translateY(-3px);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.15);
+    background: rgba(59, 130, 246, 0.05);
+    transform: translateY(-4px);
+    box-shadow:
+        0 15px 40px -10px rgba(59, 130, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(59, 130, 246, 0.5);
 }
 
 .hero-cta.secondary:hover .cta-icon {
