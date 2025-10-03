@@ -845,21 +845,43 @@ body {
 }
 
 .solution {
-    padding: 4rem 0;
-    background: var(--bg-light);
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.solution::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 85% 80%, rgba(255, 215, 0, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.solution .section-title {
+    color: white;
 }
 
 .solution-grid {
     display: flex;
     flex-direction: column;
-    gap: 4rem;
+    gap: 5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .solution-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 4rem;
     align-items: center;
+    position: relative;
 }
 
 .solution-row.reverse {
@@ -875,30 +897,65 @@ body {
 }
 
 .solution-text {
-    padding: 2rem;
+    padding: 2.5rem;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.solution-text:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 215, 0, 0.3);
+    transform: translateX(10px);
+}
+
+.solution-row.reverse .solution-text:hover {
+    transform: translateX(-10px);
 }
 
 .solution-text h3 {
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
+    font-size: 2rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1.5rem;
     line-height: 1.3;
+    letter-spacing: -0.02em;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.solution-text h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #FFD700, #FFA500);
+    border-radius: 2px;
 }
 
 .solution-text p {
     font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
+    line-height: 1.9;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 0.01em;
 }
 
 .solution-image {
     position: relative;
     overflow: hidden;
-    border-radius: var(--border-radius-lg);
-    box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.12);
-    border: 3px solid rgba(59, 130, 246, 0.1);
-    transition: all 0.4s ease;
+    border-radius: 24px;
+    box-shadow:
+        0 20px 50px -15px rgba(0, 0, 0, 0.5),
+        0 0 60px -15px rgba(255, 215, 0, 0.3);
+    border: 2px solid rgba(255, 215, 0, 0.2);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .solution-image::after {
@@ -908,18 +965,41 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.5s ease;
     pointer-events: none;
 }
 
-.solution-image:hover {
-    border-color: rgba(59, 130, 246, 0.3);
-    box-shadow: 0 20px 45px -10px rgba(59, 130, 246, 0.25);
+.solution-image::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 215, 0, 0.2) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    animation: rotateImageGlow 10s linear infinite;
+    pointer-events: none;
 }
 
-.solution-image:hover::after {
+@keyframes rotateImageGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.solution-image:hover {
+    border-color: rgba(255, 215, 0, 0.5);
+    box-shadow:
+        0 30px 70px -15px rgba(0, 0, 0, 0.6),
+        0 0 80px -15px rgba(255, 215, 0, 0.5);
+    transform: translateY(-5px);
+}
+
+.solution-image:hover::after,
+.solution-image:hover::before {
     opacity: 1;
 }
 
@@ -928,11 +1008,11 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .solution-image:hover img {
-    transform: scale(1.08);
+    transform: scale(1.1);
 }
 
 .solution-item p {
